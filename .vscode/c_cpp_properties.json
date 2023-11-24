@@ -8,8 +8,8 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "/Users/darren/Code/arduino/hunsons-ride/include",
-                "/Users/darren/Code/arduino/hunsons-ride/src",
+                "/Users/darren/Code/arduino/hudsons-ride/include",
+                "/Users/darren/Code/arduino/hudsons-ride/src",
                 "/Users/darren/.platformio/packages/framework-arduino-avr/cores/arduino",
                 "/Users/darren/.platformio/packages/framework-arduino-avr/variants/eightanaloginputs",
                 "/Users/darren/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
@@ -22,8 +22,8 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "/Users/darren/Code/arduino/hunsons-ride/include",
-                    "/Users/darren/Code/arduino/hunsons-ride/src",
+                    "/Users/darren/Code/arduino/hudsons-ride/include",
+                    "/Users/darren/Code/arduino/hudsons-ride/src",
                     "/Users/darren/.platformio/packages/framework-arduino-avr/cores/arduino",
                     "/Users/darren/.platformio/packages/framework-arduino-avr/variants/eightanaloginputs",
                     "/Users/darren/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
