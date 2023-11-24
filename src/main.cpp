@@ -27,11 +27,12 @@
 
 // Declare possible ramp states
 enum RampState {
+  Steady,
   Accelerating,
   Decelerating
 };
 
-int currentSpeed = 0;
+int currentThrottle = THROTTLE_INPUT_MIN;
 unsigned long prevNow = millis();
 
 void setup() {
@@ -59,9 +60,10 @@ void loop() {
 
   // Determine if we're accelerating or decelerating
   RampState rampState;
-  if (throttleInput >= currentSpeed) {
+  rampState = Steady;
+  if (throttleInput > currentThrottle) {
     rampState = Accelerating;
-  } else {
+  } else if (throttleInput < currentThrottle) {
     rampState = Decelerating;
   }
 
@@ -69,9 +71,9 @@ void loop() {
   unsigned long now = millis();
   if (now - prevNow >= throttleRampDelay) {
     if (rampState == Accelerating) {
-      currentSpeed++;
-    } else {
-      currentSpeed--;
+      currentThrottle++;
+    } else if (rampState == Decelerating) {
+      currentThrottle--;
     }
 
     prevNow = now;
@@ -81,5 +83,11 @@ void loop() {
   throttleInput = map(throttleInput, THROTTLE_INPUT_MIN, THROTTLE_INPUT_MAX, THROTTLE_INPUT_MIN, throttleMax);
 
   // Write throttle input to throttle output
-  analogWrite(THROTTLE_OUTPUT_PIN, currentSpeed);
+  analogWrite(THROTTLE_OUTPUT_PIN, currentThrottle);
+
+  Serial.print("in:  ");
+  Serial.println(throttleInput);
+  Serial.print("out: ");
+  Serial.println(currentThrottle);
+  Serial.println();
 }
